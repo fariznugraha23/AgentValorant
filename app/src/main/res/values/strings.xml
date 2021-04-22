@@ -5,5 +5,7 @@
     <string name="penjelasan">Penjelasan</string>
     <string name="about">About</string>
     <string name="Nama">Fariz Nugraha</string>
-    <string name="Email"> Basusenaraksa@gmail.com </string>>
+    <string name="Email"> Basusenaraksa@gmail.com </string>
+    <string name="image_splashscreen">image_splashscreen</string>
+    <string name="nama">nama</string>
 </resources>

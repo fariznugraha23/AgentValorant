@@ -1,5 +1,6 @@
 package com.example.agentvalorant
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         rvAgents = findViewById(R.id.rv_agent)
         rvAgents.setHasFixedSize(true)
         list.addAll(AgentData.listData)
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         setMode(item.itemId)
         return super.onOptionsItemSelected(item)
     }
-
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.action_list -> {
@@ -52,7 +51,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun showSelectedHero(agent: Agent) {
-        Toast.makeText(this, "Kamu memilih " + agent.name, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "Kamu memilih " + agent.name, Toast.LENGTH_SHORT).show()
+        var name : String = agent.name
+        var role : String = agent.role
+        var penjelasan : String = agent.penjelasan
+        var image :Int = agent.photo
+
+        val intent = Intent(this@MainActivity, DetailActivity::class.java)
+        intent.putExtra("iname", name)
+        intent.putExtra("role", role)
+        intent.putExtra("penjelasan", penjelasan)
+        intent.putExtra("image", image)
+        this@MainActivity.startActivity(intent)
     }
 
 }
